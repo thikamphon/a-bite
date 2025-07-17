@@ -37,7 +37,7 @@ const updateProfile = () => {
         email: userData.email
     }
     localStorage.setItem('profile-data', JSON.stringify(profileData))
-    window.location.replace('/')
+    router.push({ name: 'home' })
 }
 </script>
 <template>
