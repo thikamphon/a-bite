@@ -66,11 +66,6 @@ const updateProfile = () => {
             <div class="w-full h-full">
                 <div class="relative w-11/12 md:w-[500px] mx-auto border border-solid shadow-lg mb-10 rounded-b-lg">
                     <div class="py-8 md:py-10 px-4 md:p-10 w-full rounded-b-lg">
-                        <!-- <div class="text-right -mt-10 pt-4">
-                            <div>{{ userData.name }}</div>
-                            <div>{{ userData.email }}</div>
-                        </div> -->
-                        <!-- <div class="divider p-0 m-0"></div> -->
                         <h1 class="font-bold mt-4 mb-2 underline">Edit info</h1>
                         <div class="grid gap-2">
                             <label class="w-full input input-bordered flex items-center gap-2">
