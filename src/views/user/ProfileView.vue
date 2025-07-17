@@ -21,13 +21,13 @@ onMounted(() => {
 
 const handleFileUpload = (event) => {
     const file = event.target.files[0]
-    if (file) {
-        const reader = new FileReader()
-        reader.onload = (e) => {
-            profileImageUrl.value = e.target.result
-        }
-        reader.readAsDataURL(file)
+    if(!file) return
+    const reader = new FileReader()
+    reader.onload = () => {
+        profileImageUrl.value = reader.result
+        localStorage.setItem('profile-data', reader.result)
     }
+    reader.readAsDataURL(file)
 }
 
 const updateProfile = () => {
