@@ -37,6 +37,7 @@ const updateProfile = () => {
         email: userData.email
     }
     localStorage.setItem('profile-data', JSON.stringify(profileData))
+    window.location.replace('/')
 }
 </script>
 <template>
