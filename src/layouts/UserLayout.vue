@@ -1,8 +1,9 @@
 // header and footer
 <script setup>
 import { RouterLink, useRouter } from 'vue-router';
-import { onMounted, ref } from 'vue';
-
+import { onMounted, ref, watch } from 'vue';
+import img from '@/assets/missing-image.png'
+const profileImageUrl = ref(img)
 import { useCartStore } from '@/stores/user/cart';
 
 const cartStore = useCartStore()
@@ -10,11 +11,14 @@ const cartStore = useCartStore()
 const isLogged = ref(false)
 const searchText = ref('')
 const router = useRouter()
-
 onMounted(() => {
     if (localStorage.getItem('isLoggedIn')) {
         isLogged.value = true
+    }
 
+    const localProfile = localStorage.getItem('profile-data')
+    if (localProfile) {
+        profileImageUrl.value = JSON.parse(localProfile).imageUrl;
     }
 })
 
@@ -27,7 +31,7 @@ const logout = () => {
     isLogged.value = false
 
     localStorage.clear()
-    location.href = location.pathname 
+    location.href = location.pathname
 }
 
 const handleSearch = (event) => {
@@ -45,7 +49,7 @@ const handleSearch = (event) => {
     <div class="navbar bg-base-100 shadow-sm w-full mx-auto lg:w-4/5 ">
         <div class="flex-1">
             <RouterLink :to="{ name: 'home' }">
-                <button class="flex gap-4 items-center btn btn-outline btn-warning text-3xl">
+                <button class="rounded-[24px] flex gap-4 items-center btn btn-outline btn-warning text-3xl">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8" viewBox="0 0 448 512">
                         <path
                             d="M416 0C400 0 288 32 288 176V288c0 35.3 28.7 64 64 64h32V480c0 17.7 14.3 32 32 32s32-14.3 32-32V352 240 32c0-17.7-14.3-32-32-32zM64 16C64 7.8 57.9 1 49.7 .1S34.2 4.6 32.4 12.5L2.1 148.8C.7 155.1 0 161.5 0 167.9c0 45.9 35.1 83.6 80 87.7V480c0 17.7 14.3 32 32 32s32-14.3 32-32V255.6c44.9-4.1 80-41.8 80-87.7c0-6.4-.7-12.8-2.1-19.1L191.6 12.5c-1.8-8-9.3-13.3-17.4-12.4S160 7.8 160 16V150.2c0 5.4-4.4 9.8-9.8 9.8c-5.1 0-9.3-3.9-9.8-9L127.9 14.6C127.2 6.3 120.3 0 112 0s-15.2 6.3-15.9 14.6L83.7 151c-.5 5.1-4.7 9-9.8 9c-5.4 0-9.8-4.4-9.8-9.8V16zm48.3 152l-.3 0-.3 0 .3-.7 .3 .7z" />
@@ -55,8 +59,8 @@ const handleSearch = (event) => {
             </RouterLink>
         </div>
         <div class="flex gap-2">
-            <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" @keyup="handleSearch"
-                v-model="searchText" />
+            <input type="text" placeholder="Search" class="rounded-[24px] input input-bordered w-24 md:w-auto"
+                @keyup="handleSearch" v-model="searchText" />
             <div class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
                     <div class="indicator">
@@ -86,8 +90,8 @@ const handleSearch = (event) => {
             <div v-if="isLogged" class="dropdown dropdown-end">
                 <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
                     <div class="w-10 rounded-full">
-                        <img alt="Tailwind CSS Navbar component"
-                            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                        <img alt="Tailwind CSS Navbar component" :src="profileImageUrl" />
+                        <!-- src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" /> -->
                     </div>
                 </div>
                 <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">

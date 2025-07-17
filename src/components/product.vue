@@ -1,8 +1,8 @@
 <script setup>
-import { defineProps, onMounted, watch } from "vue";
+import { defineProps, onMounted } from "vue";
 import { useProductStore } from '@/stores/user/product';
 import { useCartStore } from '@/stores/user/cart';
-const cartStore = useCartStore()
+
 const productStore = useProductStore()
 
 onMounted(()=>{
@@ -26,7 +26,6 @@ defineProps({
                 <p class="inline">{{ product.about }}</p>
                 <div class="card-actions justify-between items-center">
                     <span class="text-lg font-bold">{{ product.price }}฿</span>
-                    <!-- <button v-if="status" class="btn btn-warning">Sold out</button> -->
                     <button class="btn btn-warning" @click="addToCart(product)">Add to
                         Cart</button>
                 </div>
