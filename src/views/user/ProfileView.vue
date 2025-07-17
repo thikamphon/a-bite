@@ -1,6 +1,8 @@
 <script setup>
 import UserLayout from '@/layouts/UserLayout.vue';
 import { onMounted, ref, reactive } from 'vue';
+import { useRouter } from 'vue-router';
+const router = useRouter()
 const profileImageUrl = ref('https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp')
 const userData = reactive({
     imageUrl: profileImageUrl,
