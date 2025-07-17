@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory  } from 'vue-router'
 import HomeView from '@/views/user/HomeView.vue'
 import CartView from '@/views/user/CartView.vue'
 import CheckoutView from '@/views/user/CheckoutView.vue'
@@ -18,7 +18,7 @@ import AdminProductUpdateView from '@/views/admin/product/UpdateView.vue'
 
 // router/index.js
 const router = createRouter({
-  history: createWebHistory('/a-bite/'), // 👈 fix path ให้ตรงกับ GitHub Pages repo
+  history: createWebHashHistory ('/a-bite/'),
   routes: [
     { path: '/', name: 'home', component: HomeView, },
     { path: '/cart', name: 'cart', component: CartView, },
