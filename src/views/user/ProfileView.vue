@@ -10,7 +10,6 @@ const userData = reactive({
     email: 'test@mail.com'
 })
 onMounted(() => {
-
     let profileData = localStorage.getItem('profile-data')
     if (profileData) {
         profileData = JSON.parse(profileData)
@@ -18,7 +17,6 @@ onMounted(() => {
         userData.name = profileData.name
         userData.email = profileData.email
     }
-
 })
 
 const handleFileUpload = (event) => {
