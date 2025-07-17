@@ -16,8 +16,9 @@ import AdminProductListView from '@/views/admin/product/ListView.vue'
 import AdminProductUpdateView from '@/views/admin/product/UpdateView.vue'
 
 
+// router/index.js
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory('/a-bite/'), // 👈 fix path ให้ตรงกับ GitHub Pages repo
   routes: [
     { path: '/', name: 'home', component: HomeView, },
     { path: '/cart', name: 'cart', component: CartView, },
