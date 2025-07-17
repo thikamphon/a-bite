@@ -2,8 +2,9 @@
 import UserLayout from '@/layouts/UserLayout.vue';
 import { onMounted, ref, reactive } from 'vue';
 import { useRouter } from 'vue-router';
+import defualtProfile from '@/assets/missing-image.png'
 const router = useRouter()
-const profileImageUrl = ref('https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp')
+const profileImageUrl = ref(defualtProfile)
 const userData = reactive({
     imageUrl: profileImageUrl,
     name: 'Emily Leslie',
@@ -21,7 +22,7 @@ onMounted(() => {
 
 const handleFileUpload = (event) => {
     const file = event.target.files[0]
-    if(!file) return
+    if (!file) return
     const reader = new FileReader()
     reader.onload = () => {
         profileImageUrl.value = reader.result
