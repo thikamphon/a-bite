@@ -2,6 +2,10 @@
 
 This template should help get you started developing with Vue 3 in Vite.
 
+## A bite Page 
+### admin Path => https://thikamphon.github.io/a-bite/#/admin/dashboard
+### user Path => https://thikamphon.github.io/a-bite/#/
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
